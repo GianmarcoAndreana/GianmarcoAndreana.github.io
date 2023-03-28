@@ -73,3 +73,9 @@ sitemap:
   _merge: deep
 minify:
   _merge: deep
+
+mediaTypes:
+  image/svg+xml:
+    suffixes:
+    - svg
+    - svgz
