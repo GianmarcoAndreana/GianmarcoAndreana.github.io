@@ -1,17 +1,15 @@
 ---
-title: "The disruptive impact of COVID-19 on air transportation: An ITS econometric
-  analysis"
+title: "A General and Simplified Methodology to Define Airport Noise-Influenced Zones and a Measurement of Related Social Costs"
 authors:
 - admin
-- Andrea Gualini
+- Mattia Grampella
 - Gianmaria Martini
-- Flavio Porta
 - Davide Scotti
 # author_notes:
 # - "Equal contribution"
 # - "Equal contribution"
-date: "2021-12-01T00:00:00Z"
-doi: https://doi.org/10.1016/j.retrec.2021.101042
+date: "2022-04-01T00:00:00Z"
+doi: https://dx.doi.org/10.2139/ssrn.4097434
 
 # Schedule page publish date (NOT publication's date).
 publishDate: "2023-01-01T00:00:00Z"
@@ -23,10 +21,10 @@ publishDate: "2023-01-01T00:00:00Z"
 publication_types: ["2"]
 
 # Publication name and optional abbreviated publication name.
-publication: "*Research in Transportation Economics*, 1*(1)"
-publication_short: "RETREC"
+publication: "*SSRN*, 1*(1)"
+publication_short: "SSRN"
 
-abstract: This paper provides estimates of the destructive impact of the COVID-19 outbreak on air transport at the macro-regional level. To this end, weekly data on the air service volumes are analyzed through an ITS SARIMA model and a counterfactual analysis covering the 2016–2020. We find that the real effect of COVID-19 was a reduction above 80% in all world's macro-regions in May 2020, and still a decrease of about 70% at the end of the Summer 2020, with the only exception of China and Eastern Asia, and North America, where the reductions are, respectively, −29% and −54%. The empirical evidence confirms that the impact of the pandemic crisis and of the subsequent lockdown has been dramatic, much higher than any previous crisis. We also find that the impact is greater for intercontinental connections and for FSCs, while LCCs appear to be slightly more resilient. These results confirm that airline economic sustainability is currently at high risk, and that the unequal resources of the various countries in subsidizing national airlines could generate a competitive imbalance in the future.
+abstract: Airport noise assessment and mitigation have been recognized as major topics by experts across many fields. The importance of assessment and mitigation is even greater as demonstrated by the current European context, where green programs are being developed and post-Covid recovery funds are linked to a green and sustainable transition. This paper aims to provide a general, relatively simple, and flexible methodology to approximate airport noiseinfluenced zones and quantify the cost of noise pollution. We have done this without specific software, monitoring stations, and/or complex meteorological data. Airport noise-influenced zones are estimated by simply relying on aircraft certification data, while the social cost of such estimation is computed by taking into account the distribution of residential units located within the estimated contours. We provide some practical applications to a group of Italian and Spanish airports as well as possible beneficial policy interventions in terms of minimization of noise impact on the population living in the airport neighborhoods. In addition, compatible land-use planning and management are proposed and discussed.
 
 # Summary. An optional shortened abstract.
 # summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum.
@@ -38,7 +36,7 @@ featured: false
 # links:
 # - name: ""
 #   url: ""
-url_pdf: https://reader.elsevier.com/reader/sd/pii/S0739885921000147?token=43EB922D2CB7B17C5F29F0404CF1A4FDE2B704D4B8693559AA8392DE41412994BA215BAD53BBD2AED051EFAC254AF4A6&originRegion=eu-west-1&originCreation=20230328100720
+url_pdf: https://deliverypdf.ssrn.com/delivery.php?ID=619020093024121098116104016103114123070005063047062066086101115029076094076090083071124048031030003119121094016082087109042004040098061007111024068076088009114007078090085035015027044100007112027085036079003097024031001002008024031002097109120127004006074012088003012030066116000025&EXT=pdf&INDEX=TRUE
 url_code: ''
 url_dataset: ''
 url_poster: ''
