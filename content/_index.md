@@ -301,7 +301,7 @@ sections:
       text: |-
         For any inqury send me an email.
       # Contact (add or remove contact options as necessary)
-      email: gianmarc.andreana@mail.huji.ac.il
+      email: gianmarco.andreana@mail.huji.ac.il
       # phone: 888 888 88 88
       # appointment_url: 'https://calendly.com'
       address:
