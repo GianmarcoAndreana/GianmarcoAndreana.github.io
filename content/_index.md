@@ -149,7 +149,7 @@ sections:
       #   Leave other parameters empty if not required.
       #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
       items:
-        - certificate_url: https://www.coursera.org
+        - certificate_url: ''
           date_end: ''
           date_start: '2022-10-01'
           description: ''
@@ -157,7 +157,7 @@ sections:
           organization_url: https://connect.informs.org/tsl/home
           title: Transportation Science and Logistics Cross Regional Grant
           url: ''
-        - certificate_url: 
+        - certificate_url: ''
           date_end: ''
           date_start: '2022-10-01'
           description: ''
@@ -165,30 +165,30 @@ sections:
           organization_url: https://connect.informs.org/aas/home
           title: 'Best Presentation Award - AAS'
           url: ''
-        - certificate_url: 
+        - certificate_url: ''
           date_end: ''
           date_start: '2022-06-01'
-          description: 
+          description: ''
           organization: ITEA
           organization_url: https://iteaweb.org/
           title: Best Student Paper Award
-          url: 
-        - certificate_url: 
+          url: ''
+        - certificate_url: ''
           date_end: ''
           date_start: '2022-03-01'
-          description: 
+          description: ''
           organization: EPFL
           organization_url: https://transp-or.epfl.ch/dca/2022.html/
           title: Discrete Choice Analysis
-          url: 
-        - certificate_url: 
+          url: ''
+        - certificate_url: ''
           date_end: ''
           date_start: '2021-08-01'
-          description: 
+          description: ''
           organization: ATRS
           organization_url: https://www.atrsworld.org/
           title: Best Student Paper Award
-          url: 
+          url: ''
     design:
       columns: '2'
   - block: collection
