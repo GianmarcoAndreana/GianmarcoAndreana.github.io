@@ -71,6 +71,7 @@ sections:
           description: ''
           icon: chart-line
           icon_pack: fas
+
   - block: experience
     content:
       title: Experience
@@ -134,13 +135,12 @@ sections:
 
               Supervisors:
               * Prof. Sergio Cavalieri
-    design:
-      columns: '2'
+    # design:
+    #   columns: '2'
   - block: accomplishments
     content:
       # Note: `&shy;` is used to add a 'soft' hyphen in a long heading.
       title: 'Accomplish&shy;ments'
-      subtitle:
       # Date format: https://wowchemy.com/docs/customization/#date-format
       date_format: Jan 2006
       # Accomplishments.
@@ -154,7 +154,6 @@ sections:
           date_start: '2022-10-01'
           description: ''
           organization: TSL
-          company_logo: TSL
           organization_url: https://connect.informs.org/tsl/home
           title: Transportation Science and Logistics Cross Regional Grant
           url: ''
