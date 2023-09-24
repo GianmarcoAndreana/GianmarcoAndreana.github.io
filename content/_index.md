@@ -48,27 +48,27 @@ sections:
       title: Skills
       items:
         - name: Python
-          description: 
+          description: ''
           icon: python
           icon_pack: fab
         - name: Transportation
-          description: 
+          description: ''
           icon: bus-alt
           icon_pack: fas
         - name: Operations Research
-          description: 
+          description: ''
           icon: dashboard
           icon_pack: fa
         - name: Game Theory
-          description: 
+          description: ''
           icon: chess-bishop
           icon_pack: fas
         - name: Economics
-          description: 
+          description: ''
           icon: coins
           icon_pack: fas
         - name: Econometrics
-          description: 
+          description: ''
           icon: chart-line
           icon_pack: fas
   - block: experience
@@ -154,6 +154,7 @@ sections:
           date_start: '2022-10-01'
           description: ''
           organization: TSL
+          company_logo: TSL
           organization_url: https://connect.informs.org/tsl/home
           title: Transportation Science and Logistics Cross Regional Grant
           url: ''
