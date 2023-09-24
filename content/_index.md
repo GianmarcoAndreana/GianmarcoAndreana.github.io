@@ -135,8 +135,8 @@ sections:
 
               Supervisors:
               * Prof. Sergio Cavalieri
-    # design:
-    #   columns: '2'
+    design:
+      columns: '2'
   - block: accomplishments
     content:
       # Note: `&shy;` is used to add a 'soft' hyphen in a long heading.
