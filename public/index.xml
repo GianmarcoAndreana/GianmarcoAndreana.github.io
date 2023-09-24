@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gianmarco Andreana</title>
+    <link>https://gianmarcoandreana.github.io/</link>
+      <atom:link href="https://gianmarcoandreana.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <description>Gianmarco Andreana</description>
+    <generator>Wowchemy (https://wowchemy.com)</generator><language>en-us</language><lastBuildDate>Mon, 24 Oct 2022 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>https://gianmarcoandreana.github.io/media/icon_hu0a31c1f074298e8b6b80b0e0ea1d3b56_1119435_512x512_fill_lanczos_center_3.png</url>
+      <title>Gianmarco Andreana</title>
+      <link>https://gianmarcoandreana.github.io/</link>
+    </image>
+    
+    <item>
+      <title>Example Talk</title>
+      <link>https://gianmarcoandreana.github.io/talk/example-talk/</link>
+      <pubDate>Sat, 01 Jun 2030 13:00:00 +0000</pubDate>
+      <guid>https://gianmarcoandreana.github.io/talk/example-talk/</guid>
+      <description>&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    Click on the &lt;strong&gt;Slides&lt;/strong&gt; button above to view the built-in slides feature.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Slides can be added in a few ways:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Create&lt;/strong&gt; slides using Wowchemy&amp;rsquo;s &lt;a href=&#34;https://wowchemy.com/docs/managing-content/#create-slides&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;em&gt;Slides&lt;/em&gt;&lt;/a&gt; feature and link using &lt;code&gt;slides&lt;/code&gt; parameter in the front matter of the talk file&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Upload&lt;/strong&gt; an existing slide deck to &lt;code&gt;static/&lt;/code&gt; and link using &lt;code&gt;url_slides&lt;/code&gt; parameter in the front matter of the talk file&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Embed&lt;/strong&gt; your slides (e.g. Google Slides) or presentation video on this page using &lt;a href=&#34;https://wowchemy.com/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;shortcodes&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Further event details, including &lt;a href=&#34;https://wowchemy.com/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;page elements&lt;/a&gt; such as image galleries, can be added to the body of this page.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>A General and Simplified Methodology to Define Airport Noise-Influenced Zones and a Measurement of Related Social Costs</title>
+      <link>https://gianmarcoandreana.github.io/publication/andreana-2022-ageneral/</link>
+      <pubDate>Fri, 01 Apr 2022 00:00:00 +0000</pubDate>
+      <guid>https://gianmarcoandreana.github.io/publication/andreana-2022-ageneral/</guid>
+      <description>&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    Click the &lt;em&gt;Cite&lt;/em&gt; button above to demo the feature to enable visitors to import publication metadata into their reference management software.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    Create your slides in Markdown - click the &lt;em&gt;Slides&lt;/em&gt; button to check out the example.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Supplementary notes can be added here, including &lt;a href=&#34;https://wowchemy.com/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;code, math, and images&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Symposium on Aviation Research. Bergamo, IT | April 7-9, 2022</title>
+      <link>https://gianmarcoandreana.github.io/post/soar2022/</link>
+      <pubDate>Tue, 22 Mar 2022 00:00:00 +0000</pubDate>
+      <guid>https://gianmarcoandreana.github.io/post/soar2022/</guid>
+      <description>&lt;p&gt;I will present the work I&amp;rsquo;m developing with my advisor, Professor &lt;a href=&#34;https://nicoleadler.huji.ac.il/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Nicole Adler&lt;/a&gt;, from the title &amp;ldquo;Aiding airlines for the benefit of whom? An applied game-theoretic model&amp;rdquo; at the &lt;a href=&#34;https://sites.google.com/unibg.it/soar-bergamo/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;SoAR&lt;/a&gt; in Bergamo.&lt;/p&gt;
+&lt;p&gt;Hope to see you there!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>The disruptive impact of COVID-19 on air transportation: An ITS econometric analysis</title>
+      <link>https://gianmarcoandreana.github.io/publication/andreana-2021-disruptive/</link>
+      <pubDate>Wed, 01 Dec 2021 00:00:00 +0000</pubDate>
+      <guid>https://gianmarcoandreana.github.io/publication/andreana-2021-disruptive/</guid>
+      <description>&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    Click the &lt;em&gt;Cite&lt;/em&gt; button above to demo the feature to enable visitors to import publication metadata into their reference management software.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    Create your slides in Markdown - click the &lt;em&gt;Slides&lt;/em&gt; button to check out the example.
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Supplementary notes can be added here, including &lt;a href=&#34;https://wowchemy.com/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;code, math, and images&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Informs Annual Meeting. Anaheim, CA | October 24-27, 2021</title>
+      <link>https://gianmarcoandreana.github.io/post/informs2021/</link>
+      <pubDate>Wed, 20 Oct 2021 00:00:00 +0000</pubDate>
+      <guid>https://gianmarcoandreana.github.io/post/informs2021/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m going to present the work I&amp;rsquo;m developing with my advisor, Professor &lt;a href=&#34;https://nicoleadler.huji.ac.il/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Nicole Adler&lt;/a&gt;, from the title &amp;ldquo;Aiding airlines for the benefit of whom? An applied game-theoretic model&amp;rdquo; at the &lt;a href=&#34;https://meetings.informs.org/wordpress/anaheim2021/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;INFORMS Annual Meeting 2021&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;See you there!&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Welcome!</title>
+      <link>https://gianmarcoandreana.github.io/post/welcome2020/</link>
+      <pubDate>Mon, 05 Feb 2018 00:00:00 +0000</pubDate>
+      <guid>https://gianmarcoandreana.github.io/post/welcome2020/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://gianmarcoandreana.github.io/admin/config.yml</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://gianmarcoandreana.github.io/admin/config.yml</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
