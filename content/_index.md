@@ -150,7 +150,7 @@ sections:
       #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
       items:
         - certificate_url: ''
-          date_end: ''
+          date_end: ' '
           date_start: '2022-10-01'
           description: ''
           organization: TSL
@@ -159,7 +159,7 @@ sections:
           title: Transportation Science and Logistics Cross Regional Grant
           url: ''
         - certificate_url: ''
-          date_end: ''
+          date_end: ' '
           date_start: '2022-10-01'
           description: ''
           organization: INFORMS
