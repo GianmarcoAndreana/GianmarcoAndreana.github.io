@@ -154,6 +154,7 @@ sections:
           date_start: '2022-10-01'
           description: ''
           organization: TSL
+          company_logo: TSL
           organization_url: https://connect.informs.org/tsl/home
           title: Transportation Science and Logistics Cross Regional Grant
           url: ''
@@ -162,6 +163,7 @@ sections:
           date_start: '2022-10-01'
           description: ''
           organization: INFORMS
+          company_logo: INFORMS
           organization_url: https://connect.informs.org/aas/home
           title: 'Best Presentation Award - AAS'
           url: ''
@@ -170,6 +172,7 @@ sections:
           date_start: '2022-06-01'
           description: ''
           organization: ITEA
+          company_logo: ITEA
           organization_url: https://iteaweb.org/
           title: Best Student Paper Award
           url: ''
@@ -178,6 +181,7 @@ sections:
           date_start: '2022-03-01'
           description: ''
           organization: EPFL
+          company_logo: EPFL
           organization_url: https://transp-or.epfl.ch/dca/2022.html/
           title: Discrete Choice Analysis
           url: ''
@@ -186,6 +190,7 @@ sections:
           date_start: '2021-08-01'
           description: ''
           organization: ATRS
+          company_logo: ATRS
           organization_url: https://www.atrsworld.org/
           title: Best Student Paper Award
           url: ''
