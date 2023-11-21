@@ -152,6 +152,14 @@ sections:
       items:
         - certificate_url: ''
           date_end: ''
+          date_start: '2023-08-01'
+          description: ''
+          organization: istrc
+          organization_url: https://istrc.net.technion.ac.il/
+          title: The Israeli Smart Transportation Research Center Conference Grant
+          url: ''
+        - certificate_url: ''
+          date_end: ''
           date_start: '2022-10-01'
           description: ''
           organization: tsl
