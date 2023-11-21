@@ -37,12 +37,12 @@ education:
     - course: PhD in Applied Economics and Management
       institution: University of Bergamo
       year: 2023
-    - course: MEng in Management Engineering
+    - course: M.S.E in Management Engineering
       institution: University of Bergamo
-      year: 2009
-    - course: BSc in Management Engineering
+      year: 2019
+    - course: B.S.E in Management Engineering
       institution: University of Bergamo
-      year: 2008
+      year: 2017
 
 # Social/Academic Networking
 # For available icons, see: https://wowchemy.com/docs/getting-started/page-builder/#icons
