@@ -81,5 +81,5 @@ email: ''
 highlight_name: true
 ---
 
-Gianmarco Andreana is a postdoctoral researcher of operations reearch at the Hebrew University of Jerusalem Business School. His research interests are related to Transportation Economics, particularly toward Aviation field: they include topics related to airport pollution and noise, airlines competition, mathematical optimization, analytic game-theoretical models and spatial analysis.
+Gianmarco Andreana is a postdoctoral researcher of operations research at the Hebrew University of Jerusalem Business School. His research interests are related to Transportation Economics, particularly toward Aviation field: they include topics related to airport pollution and noise, airline competition, mathematical optimization, analytic game-theoretical models and spatial analysis.
 {style="text-align: justify;"}
