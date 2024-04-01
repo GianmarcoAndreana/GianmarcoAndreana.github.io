@@ -18,9 +18,8 @@ role: Postdoctoral researcher
 
 # Organizations/Affiliations to show in About widget
 organizations:
-  - name: The Hebrew University of Jerusalem
-    url: https://en.huji.ac.il/
-
+  - name: University of Bergamo
+    url: https://www.unibg.it/
 # Short bio (displayed in user profile at end of posts)
 bio: My research interests include transportation, aviation, operations research and game theory.
 
@@ -81,5 +80,5 @@ email: ''
 highlight_name: true
 ---
 
-Gianmarco Andreana is a postdoctoral researcher of operations research at the Hebrew University of Jerusalem Business School. His research interests are related to Transportation Economics, particularly toward Aviation field: they include topics related to airport pollution and noise, airline competition, mathematical optimization, analytic game-theoretical models and spatial analysis.
+Gianmarco Andreana is a postdoctoral researcher of operations research at the Department of Economics of the University of Bergamo. His research interests are related to Transportation Economics, particularly in Aviation: they include topics related to airport pollution and noise, airline competition, mathematical optimization, analytic game-theoretical models and spatial analysis.
 {style="text-align: justify;"}
