@@ -85,12 +85,23 @@ sections:
       #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
       items:
         - title: Postdoctoral researcher
+          company: University of Bergamo
+          company_url: ''
+          company_logo: UNIBG
+          location: Bergamo, Italy
+          date_start: '2024-03-08'
+          date_end: ''
+          description: |2- 
+            * Research
+            * Lecturer
+              * Industrial Organisation
+        - title: Postdoctoral researcher
           company: The Hebrew University of Jerusalem
           company_url: ''
           company_logo: HUJI
           location: Jerusalem, Israel
           date_start: '2023-01-01'
-          date_end: ''
+          date_end: '2024-01-01'
           description: |2- 
             * Research
             * Lecturer
