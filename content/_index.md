@@ -322,16 +322,16 @@ sections:
       text: |-
         For any inqury send me an email.
       # Contact (add or remove contact options as necessary)
-      email: Gianmarco.Andreana@mail.huji.ac.il
+      email: gianmarco.andreana@unibg.it
       # phone: 888 888 88 88
       # appointment_url: 'https://calendly.com'
       address:
-        campus: Mount Scopus
-        city: Jerusalem
-        # region: Il
-        postcode: '97645'
-        country: Israel
-        country_code: IL
+        campus: Economics
+        city: Bergamo
+        # region: It
+        postcode: '24100'
+        country: Italy
+        country_code: IT
       # directions: Enter Building 1 and take the stairs to Office 200 on Floor 2
       office_hours:
         - 'By appointment'
