@@ -1,5 +1,5 @@
 ---
-title: "A General and Simplified Methodology to Define Airport Noise-Influenced Zones and a Measurement of Related Social Costs"
+title: "Airport noise assessment and mitigation: A simple and flexible methodology"
 authors:
 - admin
 - Mattia Grampella
@@ -8,8 +8,8 @@ authors:
 # author_notes:
 # - "Equal contribution"
 # - "Equal contribution"
-date: "2022-04-01T00:00:00Z"
-doi: https://dx.doi.org/10.2139/ssrn.4097434
+date: "2024-05-31T00:00:00Z"
+doi: https://doi.org/10.1016/j.cstp.2024.101240
 
 # Schedule page publish date (NOT publication's date).
 publishDate: "2023-01-01T00:00:00Z"
@@ -21,10 +21,10 @@ publishDate: "2023-01-01T00:00:00Z"
 publication_types: ["2"]
 
 # Publication name and optional abbreviated publication name.
-publication: "*SSRN*, 1*(1)"
-publication_short: "SSRN"
+publication: "*Case Studies on Transport Policies*, 1*(1)"
+publication_short: "CSTP"
 
-abstract: Airport noise assessment and mitigation have been recognized as major topics by experts across many fields. The importance of assessment and mitigation is even greater as demonstrated by the current European context, where green programs are being developed and post-Covid recovery funds are linked to a green and sustainable transition. This paper aims to provide a general, relatively simple, and flexible methodology to approximate airport noiseinfluenced zones and quantify the cost of noise pollution. We have done this without specific software, monitoring stations, and/or complex meteorological data. Airport noise-influenced zones are estimated by simply relying on aircraft certification data, while the social cost of such estimation is computed by taking into account the distribution of residential units located within the estimated contours. We provide some practical applications to a group of Italian and Spanish airports as well as possible beneficial policy interventions in terms of minimization of noise impact on the population living in the airport neighborhoods. In addition, compatible land-use planning and management are proposed and discussed.
+abstract: Airport noise assessment and mitigation have been recognized as major challenges in the current civil aviation context. This paper aims to provide a general, simple, and flexible methodology to approximate airport noise-influenced zones and quantify the social cost of noise pollution. The proposed methodology performs this assessment without the need for specific software, monitoring stations, and sophisticated data. Airport noise-influenced zones are estimated by relying on publicly available aircraft certification data, while the social cost of such estimation is computed by taking into account the distribution of residential units located within zones affected by noise. We present an application of this method to a group of Italian and Spanish airports, as well as possible beneficial policy interventions in terms of minimization of noise impact on the population living in the airport neighborhoods. In addition, possible mitigation policies are presented in the form of noise surcharges applied to different aircraft categories.
 
 # Summary. An optional shortened abstract.
 # summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum.
@@ -36,7 +36,7 @@ featured: false
 # links:
 # - name: ""
 #   url: ""
-url_pdf: https://deliverypdf.ssrn.com/delivery.php?ID=619020093024121098116104016103114123070005063047062066086101115029076094076090083071124048031030003119121094016082087109042004040098061007111024068076088009114007078090085035015027044100007112027085036079003097024031001002008024031002097109120127004006074012088003012030066116000025&EXT=pdf&INDEX=TRUE
+url_pdf: https://www.sciencedirect.com/science/article/pii/S2213624X24000956
 url_code: ''
 url_dataset: ''
 url_poster: ''
