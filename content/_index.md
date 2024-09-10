@@ -164,6 +164,14 @@ sections:
         - certificate_url: ''
           date_end: ''
           date_start: '2023-08-01'
+          description: 'Principal Investigator'
+          organization: unibg
+          organization_url: https://www.unibg.it/
+          title: Young Independent Research Grant 
+          url: ''
+        - certificate_url: ''
+          date_end: ''
+          date_start: '2023-08-01'
           description: ''
           organization: istrc
           organization_url: https://istrc.net.technion.ac.il/
