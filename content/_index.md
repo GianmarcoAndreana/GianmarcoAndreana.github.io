@@ -43,7 +43,7 @@ sections:
       username: admin
       # Override your bio text from `authors/admin/_index.md`?
       text:
-  - block: features  <!--- Icons from here: https://www.w3schools.com/icons/icons_reference.asp --->
+  - block: features
     content:
       title: Skills
       items:
