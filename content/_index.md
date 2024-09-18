@@ -67,10 +67,10 @@ sections:
           description: ''
           icon: coins
           icon_pack: fas
-        - name: Econometrics
+        - name: Electricity Markets
           description: ''
-          icon: chart-line
-          icon_pack: fas
+          icon: fa-transformer-bolt
+          icon_pack: fa-regular
 
   - block: experience
     content:
