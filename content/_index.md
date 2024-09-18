@@ -70,7 +70,7 @@ sections:
         - name: Electricity Markets
           description: ''
           icon: transformer-bolt
-          icon_pack: fa-regular
+          icon_pack: fa
 
   - block: experience
     content:
