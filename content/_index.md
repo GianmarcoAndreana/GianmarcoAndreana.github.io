@@ -69,7 +69,7 @@ sections:
           icon_pack: fas
         - name: Electricity Markets
           description: ''
-          icon: fa-transformer-bolt
+          icon: transformer-bolt
           icon_pack: fa-regular
 
   - block: experience
