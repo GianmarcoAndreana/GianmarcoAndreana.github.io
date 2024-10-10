@@ -87,7 +87,7 @@ sections:
         - title: Postdoctoral researcher
           company: Università Commerciale Luigi Bocconi
           company_url: ''
-          company_logo: 
+          company_logo: BOCCONI
           location: Milan, Italy
           date_start: '2024-09-24'
           date_end: ''
