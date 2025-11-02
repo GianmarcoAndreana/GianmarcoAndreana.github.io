@@ -344,7 +344,7 @@ sections:
       # phone: 888 888 88 88
       # appointment_url: 'https://calendly.com'
       address:
-        campus: Economics
+        campus: Via Lattanzio Querena, 11, Bergamo, Research Lab
         city: Bergamo
         # region: It
         postcode: '24100'
