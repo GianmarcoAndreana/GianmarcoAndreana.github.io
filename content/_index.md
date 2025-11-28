@@ -105,6 +105,7 @@ sections:
             * Research
             * Lecturer
               * Industrial Organisation
+              * Neural Networks and Deep Learning
         - title: Postdoctoral researcher
           company: The Hebrew University of Jerusalem
           company_url: ''
