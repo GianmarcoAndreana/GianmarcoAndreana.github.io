@@ -83,5 +83,5 @@ email: ''
 highlight_name: true
 ---
 
-Gianmarco Andreana is a postdoctoral researcher of operations research at the Department of Economics of the University of Bergamo. His research interests are related to Transportation Economics, particularly in Aviation: they include topics related to airport pollution and noise, airline competition, mathematical optimization, analytic game-theoretical models and spatial analysis.
+Gianmarco Andreana is a postdoctoral researcher in operations research at the Department of Economics, University of Bergamo. His research focuses on transportation economics and electricity markets, including aviation emissions and noise, airline competition, mathematical optimization, game-theoretical modeling, and power grid expansion under uncertainty.
 {style="text-align: justify;"}
