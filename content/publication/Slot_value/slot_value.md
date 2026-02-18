@@ -8,7 +8,7 @@ authors:
 # - "Equal contribution"
 # - "Equal contribution"
 date: "2026-01-01T00:00:00Z"
-doi: https://www.sciencedirect.com/science/article/pii/S0191261526000366
+doi: https://doi.org/10.1016/j.trb.2026.103424
 
 # Schedule page publish date (NOT publication's date).
 publishDate: "2026-01-01T00:00:00Z"
