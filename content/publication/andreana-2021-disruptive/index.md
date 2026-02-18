@@ -38,7 +38,7 @@ featured: false
 # links:
 # - name: ""
 #   url: ""
-url_pdf: https://reader.elsevier.com/reader/sd/pii/S0739885921000147?token=43EB922D2CB7B17C5F29F0404CF1A4FDE2B704D4B8693559AA8392DE41412994BA215BAD53BBD2AED051EFAC254AF4A6&originRegion=eu-west-1&originCreation=20230328100720
+url_pdf: https://www.sciencedirect.com/science/article/pii/S0739885921000147
 url_code: ''
 url_dataset: ''
 url_poster: ''
