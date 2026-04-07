@@ -25,8 +25,6 @@ publication_short: "TR-B"
 
 abstract: This research integrates discrete choice modelling and game theory to estimate the societal value of airport slot capacity. We first estimate heterogeneous passenger preferences for fares, frequencies and flight directness and then embed these estimates into a game-theoretic framework of competing airlines. Our framework captures the propagation effects of slot regulation across networks, the distributional impacts on passengers and airlines and environmental externalities from global emissions and local pollution. We apply this framework to assess the implications of tightening slot capacity at hub airports in North America and Europe, regions that collectively account for around 50% of worldwide revenue passenger kilometres in 2024. Social welfare declines when slot capacity is reduced because diminished connectivity and higher fares erode consumer surplus. Airline profitability is only marginally affected under mild slot reductions because increased market power raises per-passenger revenues, which offset lower passenger volumes. The environmental gains from slot reductions do not outweigh the loss in consumer surplus. However, from the perspective of a local regulator, slot reductions may increase social welfare if global environmental impacts are internalized and the social cost of carbon is sufficiently high, particularly at hubs with a large share of long-haul routes. Our findings highlight the importance of accounting for hub location and network effects in the cost-benefit analysis of slot capacity management.
 
-![test](featured.jpg)
-
 # Summary. An optional shortened abstract.
 # summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum.
 
@@ -68,6 +66,7 @@ image:
 #   Otherwise, set `slides: ""`.
 # slides: example
 ---
+![test](featured.jpg)
 
 {{% callout note %}}
 Click the *Cite* button above to demo the feature to enable visitors to import publication metadata into their reference management software.
