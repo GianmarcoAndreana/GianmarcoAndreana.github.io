@@ -47,8 +47,9 @@ url_video: ''
 # Featured image
 # To use, add an image named `featured.jpg/png` to your page's folder. 
 image:
+  placement: 2
   caption: 'Image credit: [trb](https://raw.githubusercontent.com/GianmarcoAndreana/GianmarcoAndreana.github.io/refs/heads/main/content/publication/Slot_value/TRB.jpg)'
-  focal_point: "Center"
+  focal_point: ""
   preview_only: false
   
 # Associated Projects (optional).
