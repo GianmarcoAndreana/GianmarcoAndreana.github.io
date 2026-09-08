@@ -14,12 +14,12 @@ status:
 superuser: true
 
 # Role/position/tagline
-role: Postdoctoral researcher
+role: Assistant Professor
 
 # Organizations/Affiliations to show in About widget
 organizations:
-  - name: University of Bergamo
-    url: https://www.unibg.it/
+  - name: ESCP Business School
+    url: https://escp.eu/
 # Short bio (displayed in user profile at end of posts)
 bio: My research interests include transportation, aviation, operations research and game theory.
 
