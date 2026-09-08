@@ -83,5 +83,5 @@ email: ''
 highlight_name: true
 ---
 
-Gianmarco Andreana is a postdoctoral researcher in operations research at the Department of Economics, University of Bergamo. His research focuses on transportation economics and electricity markets, including aviation emissions and noise, airline competition, mathematical optimization, game-theoretical modeling, and power grid expansion under uncertainty.
+Gianmarco Andreana is an assistant professor in operations research at the Information and Operations Management Department of the ESCP Business School in Madrid. His research focuses on transportation economics and electricity markets, including aviation emissions and noise, airline competition, mathematical optimization, game-theoretical modeling, and power grid expansion under uncertainty.
 {style="text-align: justify;"}
