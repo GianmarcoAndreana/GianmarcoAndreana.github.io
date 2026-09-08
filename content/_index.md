@@ -84,6 +84,15 @@ sections:
       #   Leave `date_end` empty if it's your current employer.
       #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
       items:
+        - title: Assistant Professor
+          company: ESCP Business School
+          company_url: ''
+          company_logo: ESCP
+          location: Madrid, Spain
+          date_start: '2026-09-01'
+          date_end: ''
+          description: |2- 
+            * Information and Operations Management
         - title: Academic Fellow
           company: Università Commerciale Luigi Bocconi
           company_url: ''
@@ -100,7 +109,7 @@ sections:
           company_logo: UNIBG
           location: Bergamo, Italy
           date_start: '2024-03-08'
-          date_end: ''
+          date_end: '2026-08-31'
           description: |2- 
             * Research
             * Lecturer
