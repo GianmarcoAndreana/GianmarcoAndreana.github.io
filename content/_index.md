@@ -87,7 +87,7 @@ sections:
         - title: Assistant Professor
           company: ESCP Business School
           company_url: ''
-          company_logo: ESCP
+          company_logo: ''
           location: Madrid, Spain
           date_start: '2026-09-01'
           date_end: ''
