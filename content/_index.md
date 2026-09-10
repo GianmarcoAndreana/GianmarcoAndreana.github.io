@@ -181,6 +181,14 @@ sections:
       #   Leave other parameters empty if not required.
       #   Begin multi-line descriptions with YAML's `|2-` multi-line prefix.
       items:
+      - certificate_url: ''
+          date_end: ''
+          date_start: '2026-07-01'
+          description: ''
+          organization: atrs
+          organization_url: https://www.atrsworld.org/
+          title: Best Paper Award
+          url: ''
         - certificate_url: ''
           date_end: ''
           date_start: '2023-08-01'
