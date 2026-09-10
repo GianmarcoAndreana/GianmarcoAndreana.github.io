@@ -35,7 +35,7 @@ education:
   courses:
     - course: Post-doc
       institution: University of Bergamo
-      year: 2023-2025
+      year: 2024-2026
     - course: Post-doc
       institution: The Hebrew University of Jerusalem Business School
       year: 2023
