@@ -34,7 +34,7 @@ interests:
 education:
   courses:
     - course: Post-doc
-      institution: The Hebrew University of Jerusalem Business School
+      institution: University of Bergamo
       year: 2023-2025
     - course: Post-doc
       institution: The Hebrew University of Jerusalem Business School
