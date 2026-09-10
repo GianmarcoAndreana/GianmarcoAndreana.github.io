@@ -33,18 +33,21 @@ interests:
 # Education to show in About widget
 education:
   courses:
-    - course: Post-doc at HUJI Business School
-      institution: The Hebrew University of Jerusalem
+    - course: Post-doc
+      institution: The Hebrew University of Jerusalem Business School
+      year: 2023-2025
+    - course: Post-doc
+      institution: The Hebrew University of Jerusalem Business School
       year: 2023
     - course: PhD in Applied Economics and Management
       institution: University of Bergamo
-      year: 2023
+      year: 2019-2023
     - course: M.S.E in Management Engineering
       institution: University of Bergamo
-      year: 2019
+      year: 2017-2019
     - course: B.S.E in Management Engineering
       institution: University of Bergamo
-      year: 2017
+      year: 2013-2017
 
 # Social/Academic Networking
 # For available icons, see: https://wowchemy.com/docs/getting-started/page-builder/#icons
