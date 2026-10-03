@@ -358,16 +358,16 @@ sections:
       text: |-
         For any inqury send me an email.
       # Contact (add or remove contact options as necessary)
-      email: gianmarco.andreana@unibg.it
+      email: gandreana[at]escp.eu
       # phone: 888 888 88 88
       # appointment_url: 'https://calendly.com'
       address:
-        campus: Economics
-        city: Via Lattanzio Querena, 11, Bergamo, Research Lab
+        campus: Business School
+        city: Arroyofresno, 1
         # region: It
-        postcode: '24100'
-        country: Italy
-        country_code: IT
+        postcode: '28035'
+        country: Madrid
+        country_code: ES
       # directions: Enter Building 1 and take the stairs to Office 200 on Floor 2
       office_hours:
         - 'By appointment'
