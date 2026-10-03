@@ -363,7 +363,7 @@ sections:
       # appointment_url: 'https://calendly.com'
       address:
         campus: Business School
-        city: Arroyofresno, 1
+        city: Calle de Arroyofresno, 1, Madrid
         # region: It
         postcode: '28035'
         country: Madrid
