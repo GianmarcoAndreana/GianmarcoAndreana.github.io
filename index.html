@@ -1,0 +1,1342 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Gianmarco Andreana · Operations Research & Transportation Economics
+    </title>
+    <meta
+      name="description"
+      content="Assistant Professor at ESCP Business School, Madrid. Research on aviation, airline competition, electricity markets and game theory."
+    />
+    <script>
+      try {
+        var t =
+          localStorage.getItem("theme") ||
+          (matchMedia("(prefers-color-scheme:dark)").matches
+            ? "dark"
+            : "light");
+        document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,700;12..96,800&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --paper: #eaf0f5;
+        --ink: #0f2238;
+        --soft: #4b5f75;
+        --line: #c3d1de;
+        --cobalt: #1f4fd8;
+        --amber: #e8a200;
+        --card: #f7fafc;
+      }
+      :root[data-theme="dark"] {
+        --paper: #0c1626;
+        --ink: #e6edf6;
+        --soft: #9db0c6;
+        --line: #24364d;
+        --cobalt: #7ba3ff;
+        --amber: #ffbf2e;
+        --card: #13233a;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 4.5rem;
+      }
+      body {
+        background: var(--paper);
+        color: var(--ink);
+        font:
+          19px/1.65 "Source Serif 4",
+          Georgia,
+          serif;
+        transition:
+          background 0.3s,
+          color 0.3s;
+      }
+      h1,
+      h2,
+      h3,
+      .sans {
+        font-family: "Bricolage Grotesque", system-ui, sans-serif;
+      }
+      a {
+        color: var(--cobalt);
+        text-underline-offset: 3px;
+      }
+      a:focus-visible,
+      button:focus-visible {
+        outline: 3px solid var(--amber);
+        outline-offset: 3px;
+      }
+      #progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 4px;
+        width: 0;
+        background: var(--amber);
+        z-index: 30;
+      }
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 1.4rem;
+        padding: 0.9rem 1.6rem;
+        font:
+          600 0.95rem "Bricolage Grotesque",
+          sans-serif;
+        background: color-mix(in srgb, var(--paper) 88%, transparent);
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid var(--line);
+      }
+      nav a {
+        color: var(--ink);
+        text-decoration: none;
+      }
+      nav a:hover {
+        color: var(--cobalt);
+      }
+      #theme {
+        font: inherit;
+        background: none;
+        color: var(--ink);
+        border: 1.5px solid var(--ink);
+        border-radius: 999px;
+        padding: 0.2rem 0.85rem;
+        cursor: pointer;
+      }
+      #theme:hover {
+        background: var(--ink);
+        color: var(--paper);
+      }
+      /* hero */
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+        gap: 3rem;
+        align-items: center;
+        max-width: 1400px;
+        margin: auto;
+        padding: 5vh 5vw;
+        min-height: calc(100vh - 3.5rem);
+      }
+      h1 {
+        font-size: clamp(2.8rem, 6.2vw, 6rem);
+        line-height: 0.95;
+        font-weight: 800;
+        letter-spacing: -0.035em;
+      }
+      h1 .w {
+        display: inline-block;
+        white-space: nowrap;
+        margin-right: 0.25em;
+      }
+      h1 span.l {
+        display: inline-block;
+        opacity: 0;
+        transform: translateY(60%) rotate(4deg);
+        animation: up 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+        animation-delay: calc(var(--i) * 28ms + 0.2s);
+      }
+      @keyframes up {
+        to {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      .role {
+        margin-top: 1.6rem;
+        font-size: 1.2rem;
+        max-width: 34ch;
+        opacity: 0;
+        animation: fade 1s 1.3s forwards;
+      }
+      .cta {
+        margin-top: 1.6rem;
+        display: flex;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+        opacity: 0;
+        animation: fade 1s 1.6s forwards;
+      }
+      @keyframes fade {
+        to {
+          opacity: 1;
+        }
+      }
+      .btn {
+        font:
+          700 1rem "Bricolage Grotesque",
+          sans-serif;
+        padding: 0.75rem 1.3rem;
+        border-radius: 999px;
+        text-decoration: none;
+        border: 2px solid var(--ink);
+        color: var(--ink);
+        transition:
+          transform 0.2s,
+          background 0.2s,
+          color 0.2s;
+      }
+      .btn.fill {
+        background: var(--ink);
+        color: var(--paper);
+      }
+      .btn:hover {
+        transform: translateY(-3px);
+        background: var(--cobalt);
+        border-color: var(--cobalt);
+        color: var(--paper);
+      }
+      .mapbox {
+        height: min(68vh, 620px);
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        background: var(--card);
+        overflow: hidden;
+      }
+      #map {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+      .cap {
+        margin-top: 0.6rem;
+        font:
+          0.85rem "Bricolage Grotesque",
+          sans-serif;
+        color: var(--soft);
+      }
+      /* sections */
+      section {
+        padding: 10vh 6vw;
+        max-width: 1100px;
+        margin: auto;
+      }
+      h2 {
+        font-size: clamp(2rem, 4.5vw, 3.2rem);
+        letter-spacing: -0.02em;
+        margin-bottom: 2rem;
+      }
+      h3.sub {
+        font-size: 1.1rem;
+        margin: 2.2rem 0 0.8rem;
+      }
+      .about {
+        display: grid;
+        grid-template-columns: 260px minmax(0, 1fr);
+        gap: 4rem;
+        align-items: start;
+      }
+      .photo {
+        width: 240px;
+        height: 240px;
+        border-radius: 26px;
+        object-fit: cover;
+        display: block;
+        box-shadow: 12px 12px 0 var(--amber);
+        margin: 0 12px 12px 0;
+        background: var(--card);
+      }
+      .photo-fb {
+        display: none;
+        width: 240px;
+        height: 240px;
+        border-radius: 26px;
+        background: var(--cobalt);
+        color: var(--paper);
+        font: 800 5rem/240px "Bricolage Grotesque";
+        text-align: center;
+      }
+      .links {
+        display: flex;
+        flex-direction: column;
+        gap: 0.3rem;
+        margin-top: 1.8rem;
+        font:
+          600 0.95rem "Bricolage Grotesque",
+          sans-serif;
+      }
+      .about p {
+        max-width: 62ch;
+      }
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      .tags span {
+        font:
+          600 0.9rem "Bricolage Grotesque",
+          sans-serif;
+        border: 1.5px solid var(--cobalt);
+        color: var(--cobalt);
+        padding: 0.25rem 0.8rem;
+        border-radius: 999px;
+        transition: all 0.2s;
+      }
+      .tags.skills span {
+        background: var(--cobalt);
+        color: var(--paper);
+      }
+      .tags span:hover {
+        transform: rotate(-3deg) scale(1.06);
+      }
+      .edu {
+        list-style: none;
+        padding: 0;
+      }
+      .edu li {
+        padding: 0.5rem 0;
+        border-bottom: 1px solid var(--line);
+        font-size: 0.95rem;
+        line-height: 1.4;
+      }
+      .edu small {
+        color: var(--soft);
+        display: block;
+      }
+      /* timeline */
+      .tl {
+        position: relative;
+        padding-left: 2.2rem;
+      }
+      .tl::before {
+        content: "";
+        position: absolute;
+        left: 6px;
+        top: 6px;
+        bottom: 6px;
+        width: 2px;
+        background: var(--line);
+      }
+      .tl i {
+        position: absolute;
+        left: 6px;
+        top: 6px;
+        width: 2px;
+        height: var(--h, 0);
+        background: var(--cobalt);
+      }
+      .job {
+        position: relative;
+        padding-bottom: 2.2rem;
+        display: grid;
+        grid-template-columns: 52px minmax(0, 1fr);
+        gap: 1rem;
+      }
+      .job::before {
+        content: "";
+        position: absolute;
+        left: -2.2rem;
+        top: 0.55rem;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+        background: var(--paper);
+        border: 3px solid var(--cobalt);
+      }
+      .job.now::before {
+        background: var(--amber);
+        border-color: var(--amber);
+        animation: ping 2s infinite;
+      }
+      @keyframes ping {
+        0% {
+          box-shadow: 0 0 0 0 rgba(232, 162, 0, 0.6);
+        }
+        100% {
+          box-shadow: 0 0 0 14px rgba(232, 162, 0, 0);
+        }
+      }
+      .logo {
+        width: 52px;
+        height: 52px;
+        border-radius: 12px;
+        background: #fff;
+        border: 1px solid var(--line);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+      .logo img {
+        max-width: 80%;
+        max-height: 80%;
+      }
+      .job h3 {
+        font-size: 1.2rem;
+        line-height: 1.3;
+      }
+      .job .meta {
+        color: var(--soft);
+        font-size: 0.95rem;
+      }
+      .job ul {
+        margin: 0.3rem 0 0 1.1rem;
+        font-size: 0.95rem;
+      }
+      /* publications */
+      .pub {
+        padding: 1.4rem 0;
+        border-top: 1px solid var(--line);
+        display: grid;
+        grid-template-columns: 96px minmax(0, 1fr);
+        gap: 1.4rem;
+      }
+      .cover {
+        position: relative;
+        width: 96px;
+        height: 128px;
+        border-radius: 6px 10px 10px 6px;
+        background: linear-gradient(160deg, var(--cobalt), var(--ink));
+        color: var(--paper);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font:
+          800 1.05rem/1.1 "Bricolage Grotesque",
+          sans-serif;
+        box-shadow:
+          inset 5px 0 0 rgba(255, 255, 255, 0.25),
+          4px 5px 0 var(--line);
+        overflow: hidden;
+      }
+      .cover img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .pub h3 {
+        font-size: 1.15rem;
+        line-height: 1.3;
+      }
+      .pub p {
+        font-size: 0.95rem;
+        color: var(--soft);
+        margin-top: 0.2rem;
+      }
+      .acts {
+        display: flex;
+        gap: 0.6rem;
+        flex-wrap: wrap;
+        margin-top: 0.8rem;
+      }
+      .acts a,
+      .acts button {
+        font:
+          600 0.85rem "Bricolage Grotesque",
+          sans-serif;
+        padding: 0.25rem 0.8rem;
+        border-radius: 999px;
+        border: 1.5px solid var(--cobalt);
+        color: var(--cobalt);
+        background: none;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .acts a:hover,
+      .acts button:hover {
+        background: var(--cobalt);
+        color: var(--paper);
+      }
+      .awards {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 1rem;
+      }
+      .award {
+        display: grid;
+        grid-template-columns: 44px minmax(0, 1fr);
+        gap: 0.9rem;
+        align-items: center;
+        background: var(--card);
+        border: 1px solid var(--line);
+        padding: 1rem;
+        border-radius: 14px;
+        font-size: 0.95rem;
+        line-height: 1.35;
+      }
+      .award .logo {
+        width: 44px;
+        height: 44px;
+      }
+      .award strong {
+        display: block;
+        font-family: "Bricolage Grotesque", sans-serif;
+      }
+      .award small {
+        color: var(--soft);
+      }
+      .big {
+        font:
+          800 clamp(1.5rem, 4.5vw, 3rem)/1.1 "Bricolage Grotesque",
+          sans-serif;
+        word-break: break-word;
+      }
+      footer {
+        padding: 3rem 6vw;
+        color: var(--soft);
+        font-size: 0.9rem;
+        border-top: 1px solid var(--line);
+        text-align: center;
+      }
+      @media (max-width: 860px) {
+        .hero {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+          min-height: 0;
+        }
+        .about {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+        nav {
+          gap: 0.8rem;
+          padding: 0.7rem 1rem;
+          font-size: 0.85rem;
+          flex-wrap: wrap;
+        }
+        .pub {
+          grid-template-columns: 72px minmax(0, 1fr);
+          gap: 1rem;
+        }
+        .cover {
+          width: 72px;
+          height: 96px;
+          font-size: 0.85rem;
+        }
+        .mapbox {
+          height: 52vh;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation: none !important;
+          transition: none !important;
+        }
+        h1 span.l,
+        .role,
+        .cta {
+          opacity: 1;
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="progress"></div>
+    <nav aria-label="Main">
+      <a href="#about">About</a><a href="#career">Career</a
+      ><a href="#research">Research</a><a href="#awards">Accomplishments</a
+      ><a href="#contact">Contact</a><a href="uploads/resume.pdf">CV</a
+      ><button id="theme" type="button" aria-label="Toggle dark mode">
+        Dark
+      </button>
+    </nav>
+
+    <header class="hero">
+      <div>
+        <h1 id="name" aria-label="Gianmarco Andreana">Gianmarco Andreana</h1>
+        <p class="role">
+          Assistant Professor at
+          <a href="https://escp.eu/">ESCP Business School</a>, Madrid. I model
+          how airlines, airports and power grids compete and grow.
+        </p>
+        <div class="cta">
+          <a class="btn fill" href="#research">Read my research</a
+          ><a class="btn" href="#contact">Get in touch</a>
+        </div>
+      </div>
+      <div>
+        <div class="mapbox">
+          <canvas
+            id="map"
+            role="img"
+            aria-label="Animated map of airplanes flying between Madrid, Bergamo and Jerusalem"
+          ></canvas>
+        </div>
+        <p class="cap">
+          Madrid, Bergamo/Milan and Jerusalem: where I have worked. Move your
+          cursor over the map.
+        </p>
+      </div>
+    </header>
+
+    <section id="about">
+      <h2>About</h2>
+      <div class="about">
+        <div>
+          <img
+            class="photo"
+            src="images/avatar.jpg"
+            alt="Portrait of Gianmarco Andreana"
+            width="240"
+            height="240"
+            onerror="
+              this.style.display = 'none';
+              this.nextElementSibling.style.display = 'block';
+            "
+          />
+          <div class="photo-fb" aria-hidden="true">GA</div>
+          <div class="links">
+            <a href="mailto:gandreana@escp.eu">Email</a
+            ><a href="https://scholar.google.it/citations?user=ABjAFMAAAAAJ"
+              >Google Scholar</a
+            ><a href="https://github.com/GianmarcoAndreana">GitHub</a
+            ><a href="https://www.linkedin.com/in/gianmarco-andreana-120b74252/"
+              >LinkedIn</a
+            ><a href="uploads/resume.pdf">CV (PDF)</a>
+          </div>
+        </div>
+        <div>
+          <p>
+            Gianmarco Andreana is an assistant professor in operations research
+            at the Information and Operations Management Department of the ESCP
+            Business School in Madrid. His research focuses on transportation
+            economics and electricity markets, including aviation emissions and
+            noise, airline competition, mathematical optimization,
+            game-theoretical modeling, and power grid expansion under
+            uncertainty.
+          </p>
+          <h3 class="sub">Interests</h3>
+          <div class="tags">
+            <span>Transportation</span><span>Aviation</span
+            ><span>Operations research</span><span>Game theory</span>
+          </div>
+          <h3 class="sub">Skills</h3>
+          <div class="tags skills">
+            <span>Python</span><span>Transportation</span
+            ><span>Operations Research</span><span>Game Theory</span
+            ><span>Economics</span><span>Electricity Markets</span>
+          </div>
+          <h3 class="sub">Education</h3>
+          <ul class="edu">
+            <li>Post-doc<small>University of Bergamo, 2024–2026</small></li>
+            <li>
+              Post-doc<small
+                >The Hebrew University of Jerusalem Business School, 2023</small
+              >
+            </li>
+            <li>
+              PhD in Applied Economics and Management<small
+                >University of Bergamo, 2019–2023</small
+              >
+            </li>
+            <li>
+              M.S.E. in Management Engineering<small
+                >University of Bergamo, 2017–2019</small
+              >
+            </li>
+            <li>
+              B.S.E. in Management Engineering<small
+                >University of Bergamo, 2013–2017</small
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="career">
+      <h2>Experience</h2>
+      <div class="tl" id="tl">
+        <i></i>
+        <div class="job now">
+          <a class="logo" href="https://escp.eu/"
+            ><img
+              src="media/icons/brands/ESCP.svg"
+              alt="ESCP"
+              onerror="this.remove()"
+          /></a>
+          <div>
+            <h3>Assistant Professor</h3>
+            <div class="meta">
+              ESCP Business School · Madrid, Spain · Sept 2026 – present
+            </div>
+            <ul>
+              <li>Information and Operations Management</li>
+            </ul>
+          </div>
+        </div>
+        <div class="job">
+          <div class="logo">
+            <img
+              src="media/icons/brands/BOCCONI.svg"
+              alt="Bocconi"
+              onerror="this.remove()"
+            />
+          </div>
+          <div>
+            <h3>Academic Fellow</h3>
+            <div class="meta">
+              Università Commerciale Luigi Bocconi · Milan, Italy · Sept 2024 –
+              present
+            </div>
+            <ul>
+              <li>Teaching Assistant: Microeconomics</li>
+            </ul>
+          </div>
+        </div>
+        <div class="job">
+          <div class="logo">
+            <img
+              src="media/icons/brands/UNIBG.svg"
+              alt="University of Bergamo"
+              onerror="this.remove()"
+            />
+          </div>
+          <div>
+            <h3>Postdoctoral researcher</h3>
+            <div class="meta">
+              University of Bergamo · Bergamo, Italy · Mar 2024 – Aug 2026
+            </div>
+            <ul>
+              <li>Research</li>
+              <li>
+                Lecturer: Industrial Organisation; Neural Networks and Deep
+                Learning
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="job">
+          <div class="logo">
+            <img
+              src="media/icons/brands/HUJI.svg"
+              alt="Hebrew University"
+              onerror="this.remove()"
+            />
+          </div>
+          <div>
+            <h3>Postdoctoral researcher</h3>
+            <div class="meta">
+              The Hebrew University of Jerusalem · Jerusalem, Israel · Jan 2023
+              – Jan 2024
+            </div>
+            <ul>
+              <li>Research</li>
+              <li>Lecturer: Quantitative models</li>
+            </ul>
+          </div>
+        </div>
+        <div class="job">
+          <div class="logo">
+            <img
+              src="media/icons/brands/UNIBG.svg"
+              alt="University of Bergamo"
+              onerror="this.remove()"
+            />
+          </div>
+          <div>
+            <h3>PhD in Applied Economics and Management</h3>
+            <div class="meta">
+              University of Bergamo · Bergamo, Italy · Oct 2019 – Mar 2023
+            </div>
+            <ul>
+              <li>
+                Thesis: Externalities in the Aviation Industry (Grade:
+                Excellent)
+              </li>
+              <li>Supervisors: Prof. Nicole Adler, Prof. Gianmaria Martini</li>
+            </ul>
+          </div>
+        </div>
+        <div class="job">
+          <div class="logo">
+            <img
+              src="media/icons/brands/UNIBG.svg"
+              alt="University of Bergamo"
+              onerror="this.remove()"
+            />
+          </div>
+          <div>
+            <h3>MSEng in Management Engineering</h3>
+            <div class="meta">
+              University of Bergamo · Bergamo, Italy · Sept 2017 – Sept 2019
+            </div>
+            <ul>
+              <li>
+                Thesis: Cost Benefit Analysis of the new Bergamo Tramway line T2
+              </li>
+              <li>Supervisor: Prof. Gianmaria Martini</li>
+            </ul>
+          </div>
+        </div>
+        <div class="job">
+          <div class="logo">
+            <img
+              src="media/icons/brands/UNIBG.svg"
+              alt="University of Bergamo"
+              onerror="this.remove()"
+            />
+          </div>
+          <div>
+            <h3>BS in Management Engineering</h3>
+            <div class="meta">
+              University of Bergamo · Bergamo, Italy · Sept 2013 – Aug 2017
+            </div>
+            <ul>
+              <li>Thesis: The ANSI-ISA 95 norm</li>
+              <li>Supervisor: Prof. Sergio Cavalieri</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="research">
+      <h2>Publications</h2>
+      <div class="pub">
+        <div class="cover">
+          TR-B<img
+            src="media/journals/trb.jpg"
+            alt=""
+            onerror="this.remove()"
+          />
+        </div>
+        <div>
+          <h3>Estimating the societal value of airport slots</h3>
+          <p>
+            Nicole Adler, Gianmarco Andreana, Gerben de Jong (2026) ·
+            Transportation Research Part B
+          </p>
+          <div class="acts">
+            <a
+              href="https://www.sciencedirect.com/science/article/pii/S0191261526000366"
+              >PDF</a
+            ><a href="https://doi.org/10.1016/j.trb.2026.103424">DOI</a
+            ><button
+              type="button"
+              data-cite="Adler, N., Andreana, G., de Jong, G. (2026). Estimating the societal value of airport slots. Transportation Research Part B. https://doi.org/10.1016/j.trb.2026.103424"
+            >
+              Cite
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="pub">
+        <div class="cover">
+          CSTP<img
+            src="media/journals/cstp.jpg"
+            alt=""
+            onerror="this.remove()"
+          />
+        </div>
+        <div>
+          <h3>
+            Airport noise assessment and mitigation: A simple and flexible
+            methodology
+          </h3>
+          <p>
+            Gianmarco Andreana, Mattia Grampella, Gianmaria Martini, Davide
+            Scotti (2024) · Case Studies on Transport Policy
+          </p>
+          <div class="acts">
+            <a
+              href="https://www.sciencedirect.com/science/article/pii/S2213624X24000956"
+              >PDF</a
+            ><a href="https://doi.org/10.1016/j.cstp.2024.101240">DOI</a
+            ><button
+              type="button"
+              data-cite="Andreana, G., Grampella, M., Martini, G., Scotti, D. (2024). Airport noise assessment and mitigation: A simple and flexible methodology. Case Studies on Transport Policy. https://doi.org/10.1016/j.cstp.2024.101240"
+            >
+              Cite
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="pub">
+        <div class="cover">
+          EJOR<img
+            src="media/journals/ejor.jpg"
+            alt=""
+            onerror="this.remove()"
+          />
+        </div>
+        <div>
+          <h3>
+            Aiding airlines for the benefit of whom? An applied game-theoretic
+            approach
+          </h3>
+          <p>
+            Nicole Adler, Gianmarco Andreana (2023) · European Journal of
+            Operational Research
+          </p>
+          <div class="acts">
+            <a
+              href="https://www.sciencedirect.com/science/article/pii/S037722172300718X"
+              >PDF</a
+            ><a href="https://doi.org/10.1016/j.ejor.2023.09.015">DOI</a
+            ><button
+              type="button"
+              data-cite="Adler, N., Andreana, G. (2023). Aiding airlines for the benefit of whom? An applied game-theoretic approach. European Journal of Operational Research. https://doi.org/10.1016/j.ejor.2023.09.015"
+            >
+              Cite
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="pub">
+        <div class="cover">
+          RETREC<img
+            src="media/journals/retrec.jpg"
+            alt=""
+            onerror="this.remove()"
+          />
+        </div>
+        <div>
+          <h3>
+            The disruptive impact of COVID-19 on air transportation: An ITS
+            econometric analysis
+          </h3>
+          <p>
+            Gianmarco Andreana, Andrea Gualini, Gianmaria Martini, Flavio Porta,
+            Davide Scotti (2021) · Research in Transportation Economics
+          </p>
+          <div class="acts">
+            <a
+              href="https://www.sciencedirect.com/science/article/pii/S0739885921000147"
+              >PDF</a
+            ><a href="https://doi.org/10.1016/j.retrec.2021.101042">DOI</a
+            ><button
+              type="button"
+              data-cite="Andreana, G., Gualini, A., Martini, G., Porta, F., Scotti, D. (2021). The disruptive impact of COVID-19 on air transportation: An ITS econometric analysis. Research in Transportation Economics. https://doi.org/10.1016/j.retrec.2021.101042"
+            >
+              Cite
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="awards">
+      <h2>Accomplishments</h2>
+      <div class="awards">
+        <div class="award">
+          <a class="logo" href="https://www.atrsworld.org/"
+            ><img
+              src="media/icons/brands/atrs.svg"
+              alt="ATRS"
+              onerror="this.remove()"
+          /></a>
+          <div>
+            <strong>Best Paper Award</strong>ATRS<br /><small>Jul 2026</small>
+          </div>
+        </div>
+        <div class="award">
+          <a class="logo" href="https://www.unibg.it/"
+            ><img
+              src="media/icons/brands/UNIBG.svg"
+              alt="UniBG"
+              onerror="this.remove()"
+          /></a>
+          <div>
+            <strong>Young Independent Research Grant</strong>UniBG · Principal
+            Investigator<br /><small>Aug 2023</small>
+          </div>
+        </div>
+        <div class="award">
+          <a class="logo" href="https://istrc.net.technion.ac.il/"
+            ><img
+              src="media/icons/brands/istrc.svg"
+              alt="ISTRC"
+              onerror="this.remove()"
+          /></a>
+          <div>
+            <strong>Conference Grant</strong>Israeli Smart Transportation
+            Research Center<br /><small>Aug 2023</small>
+          </div>
+        </div>
+        <div class="award">
+          <a class="logo" href="https://connect.informs.org/tsl/home"
+            ><img
+              src="media/icons/brands/tsl.svg"
+              alt="TSL"
+              onerror="this.remove()"
+          /></a>
+          <div>
+            <strong>Cross Regional Grant</strong>Transportation Science and
+            Logistics<br /><small>Oct 2022</small>
+          </div>
+        </div>
+        <div class="award">
+          <a class="logo" href="https://connect.informs.org/aas/home"
+            ><img
+              src="media/icons/brands/informs.svg"
+              alt="INFORMS"
+              onerror="this.remove()"
+          /></a>
+          <div>
+            <strong>Best Presentation Award</strong>INFORMS AAS<br /><small
+              >Oct 2022</small
+            >
+          </div>
+        </div>
+        <div class="award">
+          <a class="logo" href="https://iteaweb.org/"
+            ><img
+              src="media/icons/brands/itea.svg"
+              alt="ITEA"
+              onerror="this.remove()"
+          /></a>
+          <div>
+            <strong>Best Student Paper Award</strong>ITEA<br /><small
+              >Jun 2022</small
+            >
+          </div>
+        </div>
+        <div class="award">
+          <a class="logo" href="https://transp-or.epfl.ch/dca/2022.html/"
+            ><img
+              src="media/icons/brands/epfl.svg"
+              alt="EPFL"
+              onerror="this.remove()"
+          /></a>
+          <div>
+            <strong>Discrete Choice Analysis</strong>EPFL<br /><small
+              >Mar 2022</small
+            >
+          </div>
+        </div>
+        <div class="award">
+          <a class="logo" href="https://www.atrsworld.org/"
+            ><img
+              src="media/icons/brands/atrs.svg"
+              alt="ATRS"
+              onerror="this.remove()"
+          /></a>
+          <div>
+            <strong>Best Student Paper Award</strong>ATRS<br /><small
+              >Aug 2021</small
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p style="margin-bottom: 1rem">For any inquiry, send me an email.</p>
+      <p class="big">
+        <a href="mailto:gandreana@escp.eu">gandreana@escp.eu</a>
+      </p>
+      <p style="margin-top: 1.2rem">
+        Calle de Arroyofresno, 1, Madrid, 28035 · By appointment
+      </p>
+    </section>
+    <footer>
+      © 2026 Gianmarco Andreana. Licensed under
+      <a href="https://creativecommons.org/licenses/by-nc-nd/4.0"
+        >CC BY-NC-ND 4.0</a
+      >.
+    </footer>
+
+    <script>
+      // Animated name (words stay unbroken, letters animate)
+      (function () {
+        const h = document.getElementById("name");
+        let i = 0;
+        const t = h.textContent;
+        h.textContent = "";
+        t.split(" ").forEach((w) => {
+          const g = document.createElement("span");
+          g.className = "w";
+          g.setAttribute("aria-hidden", "true");
+          [...w].forEach((c) => {
+            const s = document.createElement("span");
+            s.className = "l";
+            s.style.setProperty("--i", i++);
+            s.textContent = c;
+            g.appendChild(s);
+          });
+          h.appendChild(g);
+          h.appendChild(document.createTextNode(" "));
+        });
+      })();
+
+      // Theme toggle
+      const root = document.documentElement,
+        tb = document.getElementById("theme");
+      let C;
+      function colors() {
+        const s = getComputedStyle(root);
+        C = {
+          ink: s.getPropertyValue("--ink").trim(),
+          cob: s.getPropertyValue("--cobalt").trim(),
+          amb: s.getPropertyValue("--amber").trim(),
+          bg: s.getPropertyValue("--card").trim(),
+        };
+        tb.textContent = root.dataset.theme === "dark" ? "Light" : "Dark";
+      }
+      tb.onclick = () => {
+        root.dataset.theme = root.dataset.theme === "dark" ? "light" : "dark";
+        try {
+          localStorage.setItem("theme", root.dataset.theme);
+        } catch (e) {}
+        colors();
+        if (reduce) draw();
+      };
+
+      // Copy citation
+      document.querySelectorAll("[data-cite]").forEach(
+        (b) =>
+          (b.onclick = async () => {
+            try {
+              await navigator.clipboard.writeText(b.dataset.cite);
+              b.textContent = "Copied";
+            } catch (e) {
+              b.textContent = "Copy failed";
+            }
+            setTimeout(() => (b.textContent = "Cite"), 1800);
+          }),
+      );
+
+      // Scroll progress + timeline fill
+      const bar = document.getElementById("progress"),
+        tl = document.getElementById("tl");
+      function onScroll() {
+        const d = document.documentElement;
+        bar.style.width =
+          (d.scrollTop / (d.scrollHeight - d.clientHeight)) * 100 + "%";
+        const r = tl.getBoundingClientRect(),
+          p = Math.min(Math.max((innerHeight * 0.6 - r.top) / r.height, 0), 1);
+        tl.style.setProperty("--h", p * (r.height - 12) + "px");
+      }
+      addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
+
+      // Hero: airplanes on a flight network
+      const cv = document.getElementById("map"),
+        ctx = cv.getContext("2d");
+      const reduce = matchMedia("(prefers-reduced-motion:reduce)").matches;
+      const LON = [-12, 40],
+        LAT = [29, 53];
+      const key = [
+        { n: "Madrid", x: -3.7, y: 40.4 },
+        { n: "Bergamo · Milan", x: 9.7, y: 45.6 },
+        { n: "Jerusalem", x: 35.2, y: 31.8 },
+      ];
+      const hubs = [
+        { x: -0.5, y: 51.5 },
+        { x: 2.5, y: 49 },
+        { x: 8.6, y: 50 },
+        { x: 12.5, y: 41.8 },
+        { x: 28.9, y: 41 },
+        { x: 23.7, y: 38 },
+        { x: -9.1, y: 38.7 },
+        { x: 4.8, y: 52.3 },
+        { x: 16.4, y: 48.1 },
+        { x: 2.1, y: 41.4 },
+      ];
+      const all = [...key, ...hubs];
+      const routes = [
+        [0, 1],
+        [1, 2],
+        [2, 1],
+        [1, 0],
+        [3, 1],
+        [4, 2],
+        [1, 5],
+        [6, 0],
+        [7, 1],
+        [8, 2],
+        [9, 3],
+        [10, 4],
+        [11, 5],
+        [12, 1],
+        [4, 8],
+        [7, 9],
+        [10, 12],
+        [3, 6],
+        [12, 2],
+        [0, 9],
+      ];
+      const SHAPE = [
+        [10, 0],
+        [6, -1.6],
+        [0.5, -9],
+        [-1.8, -9],
+        [-1.5, -1.8],
+        [-7.5, -1.4],
+        [-9, -4.6],
+        [-10.8, -4.6],
+        [-10, 0],
+      ];
+      let W,
+        H,
+        mouse = { x: -999, y: -999 },
+        planes = [];
+      function P(n) {
+        return {
+          x: ((n.x - LON[0]) / (LON[1] - LON[0])) * W * 0.8 + W * 0.1,
+          y: H - (((n.y - LAT[0]) / (LAT[1] - LAT[0])) * H * 0.62 + H * 0.16),
+        };
+      }
+      function resize() {
+        const d = devicePixelRatio || 1;
+        W = cv.clientWidth;
+        H = cv.clientHeight;
+        cv.width = W * d;
+        cv.height = H * d;
+        ctx.setTransform(d, 0, 0, d, 0, 0);
+        planes = routes.map((r) => ({
+          r,
+          t: Math.random(),
+          v: (r[0] < 3 && r[1] < 3 ? 0.0016 : 0.0009) + Math.random() * 0.0006,
+        }));
+      }
+      function arc(a, b) {
+        const p = P(a),
+          q = P(b),
+          dx = q.x - p.x,
+          dy = q.y - p.y,
+          l = Math.hypot(dx, dy);
+        return {
+          p,
+          q,
+          c: {
+            x: (p.x + q.x) / 2 - dy * 0.18,
+            y: (p.y + q.y) / 2 + dx * 0.18 - l * 0.1,
+          },
+        };
+      }
+      function pt(A, t) {
+        const u = 1 - t;
+        return {
+          x: u * u * A.p.x + 2 * u * t * A.c.x + t * t * A.q.x,
+          y: u * u * A.p.y + 2 * u * t * A.c.y + t * t * A.q.y,
+        };
+      }
+      function plane(x, y, ang, s, col) {
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.rotate(ang);
+        ctx.scale(s, s);
+        ctx.fillStyle = col;
+        ctx.beginPath();
+        SHAPE.forEach((p, i) =>
+          i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1]),
+        );
+        for (let i = SHAPE.length - 2; i >= 0; i--)
+          ctx.lineTo(SHAPE[i][0], -SHAPE[i][1]);
+        ctx.closePath();
+        ctx.fill();
+        ctx.restore();
+      }
+      function draw() {
+        ctx.clearRect(0, 0, W, H);
+        ctx.lineCap = "round";
+        ctx.globalAlpha = 0.08;
+        ctx.strokeStyle = C.ink;
+        ctx.lineWidth = 1;
+        for (let lo = -10; lo <= 40; lo += 10) {
+          const a = P({ x: lo, y: LAT[0] }),
+            b = P({ x: lo, y: LAT[1] });
+          ctx.beginPath();
+          ctx.moveTo(a.x, 0);
+          ctx.lineTo(b.x, H);
+          ctx.stroke();
+        }
+        for (let la = 30; la <= 52; la += 5) {
+          const a = P({ x: LON[0], y: la });
+          ctx.beginPath();
+          ctx.moveTo(0, a.y);
+          ctx.lineTo(W, a.y);
+          ctx.stroke();
+        }
+        planes.forEach((pl) => {
+          const A = arc(all[pl.r[0]], all[pl.r[1]]),
+            hot = pl.r[0] < 3 && pl.r[1] < 3;
+          ctx.globalAlpha = hot ? 0.55 : 0.2;
+          ctx.strokeStyle = hot ? C.cob : C.ink;
+          ctx.lineWidth = hot ? 2 : 1;
+          ctx.setLineDash(hot ? [] : [3, 5]);
+          ctx.beginPath();
+          ctx.moveTo(A.p.x, A.p.y);
+          ctx.quadraticCurveTo(A.c.x, A.c.y, A.q.x, A.q.y);
+          ctx.stroke();
+          ctx.setLineDash([]);
+          if (!reduce) pl.t = (pl.t + pl.v) % 1;
+          const a = pt(A, pl.t),
+            b = pt(A, Math.min(pl.t + 0.01, 1)),
+            ang = Math.atan2(b.y - a.y, b.x - a.x);
+          const near = Math.hypot(a.x - mouse.x, a.y - mouse.y) < 90;
+          ctx.globalAlpha = hot ? 1 : 0.6;
+          plane(
+            a.x,
+            a.y,
+            ang,
+            (hot ? 1.25 : 0.8) * (near ? 1.6 : 1),
+            hot ? C.amb : C.ink,
+          );
+        });
+        ctx.globalAlpha = 0.4;
+        ctx.fillStyle = C.ink;
+        hubs.forEach((h) => {
+          const p = P(h);
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, 3, 0, 7);
+          ctx.fill();
+        });
+        ctx.globalAlpha = 1;
+        key.forEach((k) => {
+          const p = P(k),
+            near = Math.hypot(p.x - mouse.x, p.y - mouse.y) < 80,
+            pu = reduce ? 0 : (Date.now() % 2000) / 2000;
+          ctx.globalAlpha = 0.5 * (1 - pu);
+          ctx.strokeStyle = C.cob;
+          ctx.lineWidth = 2;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, 8 + pu * (near ? 30 : 20), 0, 7);
+          ctx.stroke();
+          ctx.globalAlpha = 1;
+          ctx.fillStyle = C.cob;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, near ? 9 : 7, 0, 7);
+          ctx.fill();
+          ctx.font =
+            "700 " + (near ? 18 : 15) + 'px "Bricolage Grotesque",sans-serif';
+          ctx.textAlign = "center";
+          ctx.lineJoin = "round";
+          ctx.lineWidth = 5;
+          ctx.strokeStyle = C.bg;
+          ctx.strokeText(k.n, p.x, p.y - 18);
+          ctx.fillStyle = C.ink;
+          ctx.fillText(k.n, p.x, p.y - 18);
+        });
+        if (!reduce) requestAnimationFrame(draw);
+      }
+      cv.addEventListener("pointermove", (e) => {
+        const r = cv.getBoundingClientRect();
+        mouse = { x: e.clientX - r.left, y: e.clientY - r.top };
+      });
+      cv.addEventListener("pointerleave", () => (mouse = { x: -999, y: -999 }));
+      addEventListener("resize", () => {
+        resize();
+        if (reduce) draw();
+      });
+      colors();
+      resize();
+      draw();
+    </script>
+  </body>
+</html>
