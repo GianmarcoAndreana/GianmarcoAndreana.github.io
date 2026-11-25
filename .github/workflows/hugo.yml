@@ -42,8 +42,10 @@ jobs:
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v4
-      - name: Install Node.js dependencies
-        run: "[[ -f package-lock.json || -f npm-shrinkwrap.json ]] && npm ci || true"
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
       - name: Build with Hugo
         env:
           # For maximum backward compatibility with Hugo modules
@@ -54,8 +56,10 @@ jobs:
             --gc \
             --minify \
             --baseURL "${{ steps.pages.outputs.base_url }}/"
-      - name: Use redesigned homepage
-        run: cp index.html public/index.html
+      - name: Build redesigned pages
+        run: node scripts/build-site.mjs
+      - name: Check redesigned page links
+        run: node scripts/check-site.mjs
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

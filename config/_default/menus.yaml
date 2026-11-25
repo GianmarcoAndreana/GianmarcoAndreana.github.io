@@ -5,22 +5,22 @@
 
 main:
   - name: Home
-    url: '#about'
+    url: '/'
     weight: 10
-  - name: Posts
-    url: '#posts'
+  - name: Career
+    url: '/career/'
     weight: 20
   # - name: Projects
   #   url: '#projects'
   #   weight: 30
-  - name: Publications
-    url: '#publications'
+  - name: Research
+    url: '/research/'
     weight: 30
-  - name: Talks
-    url: '#talks'
+  - name: Accomplishments
+    url: '/accomplishments/'
     weight: 40
-  - name: Contact
-    url: '#contact'
+  - name: Contacts
+    url: '/contacts/'
     weight: 50
   - name: CV
     url: uploads/resume.pdf
