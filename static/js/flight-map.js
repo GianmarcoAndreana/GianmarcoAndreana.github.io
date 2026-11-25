@@ -15,7 +15,7 @@ if (flightMap) {
       document.getElementById("map-career-link").href = cities[city].link;
       flightMap.querySelectorAll(".route:not(.secondary)").forEach((route) => route.classList.toggle("is-muted", !route.dataset.connects.split(" ").includes(city)));
       flightMap.querySelectorAll("[data-map-node]").forEach((node) => {
-        node.querySelector(".city-ring").setAttribute("r", node.dataset.mapNode === city ? "21" : "14");
+        node.querySelector(".city-ring").setAttribute("r", node.dataset.mapNode === city ? "16" : "9");
       });
     });
   });

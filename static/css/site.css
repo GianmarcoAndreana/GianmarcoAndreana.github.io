@@ -105,15 +105,15 @@ img { max-width: 100%; display: block; }
 .flight-map { display: block; width: 100%; height: auto; background: var(--map-water); }
 .flight-map .land { fill: var(--map-land); stroke: var(--map-border); stroke-width: .7; }
 .flight-map .graticule { stroke: var(--map-border); stroke-width: .45; opacity: .7; fill: none; }
-.flight-map .map-label { fill: var(--soft); font: 8px var(--sans); letter-spacing: 3px; opacity: .7; }
-.flight-map .sea-label { font: italic 14px var(--serif); fill: var(--soft); letter-spacing: 1px; opacity: .55; }
+.flight-map .map-label { fill: var(--soft); font: 500 10px var(--sans); letter-spacing: 1.2px; paint-order: stroke; stroke: var(--map-land); stroke-width: 3px; stroke-linejoin: round; }
+.flight-map .sea-label { font: italic 15px var(--serif); fill: var(--soft); letter-spacing: .5px; opacity: .8; }
 .flight-map .route { stroke: var(--accent); stroke-width: 1.5; opacity: .6; fill: none; }
 .flight-map .route.secondary { stroke: #82926b; stroke-dasharray: 3 5; opacity: .7; stroke-width: 1; }
 .flight-map .route.is-muted { opacity: .15; }
 .flight-map .city-ring { fill: var(--accent); opacity: .1; }
 .flight-map .city-dot { fill: var(--accent); stroke: var(--map-land); stroke-width: 2; }
-.flight-map .city-label { fill: var(--ink); font: 500 13px var(--sans); paint-order: stroke; stroke: var(--map-land); stroke-width: 5px; stroke-linejoin: round; }
-.flight-map .city-code { fill: var(--accent); font: 600 8px var(--sans); letter-spacing: 1px; }
+.flight-map .city-label { fill: var(--ink); font: 600 16px var(--sans); paint-order: stroke; stroke: var(--map-land); stroke-width: 5px; stroke-linejoin: round; }
+.flight-map .city-leader { fill: none; stroke: var(--accent); stroke-width: .8; opacity: .8; }
 .flight-map .plane { fill: var(--accent); stroke: var(--map-land); stroke-width: 1; stroke-linejoin: round; paint-order: stroke; filter: drop-shadow(0 2px 2px #263b3235); }
 .flight-map .plane.secondary { fill: #738568; }
 .map-compass { fill: var(--soft); font: 9px var(--sans); }
@@ -123,13 +123,13 @@ img { max-width: 100%; display: block; }
 .destination:last-child { border-right: 0; }
 .destination[aria-pressed="true"] { border-top-color: var(--accent); background: var(--accent-wash); }
 .destination:hover { background: var(--green-wash); }
-.destination .airport-code { display: block; font-size: 18px; font-weight: 450; letter-spacing: -.04em; line-height: 1.3; }
-.destination .city-name { color: var(--soft); font-size: 9px; }
+.destination .destination-name { display: block; font-size: 13px; font-weight: 550; line-height: 1.4; }
+.destination .city-name { color: var(--soft); font-size: 11px; }
 .map-caption { display: flex; gap: 12px; justify-content: space-between; padding: 16px 23px; align-items: center; min-height: 75px; }
-.map-caption strong { display: block; font-size: 10px; font-weight: 550; }
-.map-caption p { font-size: 10px; color: var(--soft); margin-top: 2px; }
+.map-caption strong { display: block; font-size: 12px; font-weight: 550; }
+.map-caption p { font-size: 11px; color: var(--soft); margin-top: 2px; }
 .map-caption .text-link { font-size: 10px; white-space: nowrap; color: var(--accent); }
-.map-footnote { color: var(--soft); font-size: 9px; margin-top: 10px; display: flex; justify-content: space-between; gap: 10px; }
+.map-footnote { color: var(--soft); font-size: 10px; margin-top: 10px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 3px 10px; }
 .map-footnote span:first-child::before { content: ""; display: inline-block; width: 13px; height: 1px; background: var(--accent); vertical-align: middle; margin-right: 6px; }
 .affiliations { display: flex; justify-content: space-between; align-items: center; gap: 25px; padding-block: 26px 30px; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .affiliations > p { font-size: 9px; line-height: 1.7; color: var(--soft); letter-spacing: .12em; text-transform: uppercase; }
@@ -215,12 +215,12 @@ img { max-width: 100%; display: block; }
 .pub h3 { font-size: 21px; max-width: 760px; line-height: 1.4; margin-bottom: 10px; }
 .pub h3 a { text-decoration: none; }
 .pub h3 a:hover { color: var(--accent); }
-.pub-authors { font-size: 11px; color: var(--soft); }
-.pub-journal { font-size: 11px; font-style: italic; margin-top: 4px; }
+.pub-authors { font-size: 13px; color: var(--soft); }
+.pub-journal { font-size: 13px; font-style: italic; margin-top: 4px; }
 .pub-actions { display: flex; gap: 18px; margin-top: 16px; align-items: center; }
-.pub-actions a, .pub-actions button { background: none; border: 0; padding: 0; font-size: 10px; color: var(--accent); text-decoration: none; }
+.pub-actions a, .pub-actions button { background: none; border: 0; padding: 5px 0; font-size: 12px; color: var(--accent); text-decoration: none; }
 .pub-actions a:hover, .pub-actions button:hover { text-decoration: underline; text-underline-offset: 4px; }
-.pub-abstract { margin-top: 13px; font-size: 11px; max-width: 740px; }
+.pub-abstract { margin-top: 13px; font-size: 13px; max-width: 740px; }
 .pub-abstract summary { color: var(--soft); cursor: pointer; width: fit-content; }
 .pub-abstract p { color: var(--soft); margin-top: 10px; line-height: 1.9; }
 .no-results { padding-block: 45px; font-size: 14px; color: var(--soft); }
@@ -351,12 +351,12 @@ img { max-width: 100%; display: block; }
   .flight-map { min-height: 240px; }
   .destination { padding-block: 11px; }
   .destination:first-child { padding-left: 15px; }
-  .destination .airport-code { font-size: 17px; }
+  .destination .destination-name { font-size: 11px; }
   .map-caption { padding: 14px 15px; gap: 8px; }
   .map-caption .text-link { font-size: 9px; gap: 4px; }
-  .map-caption strong { font-size: 9px; }
-  .map-caption p { font-size: 9px; }
-  .map-footnote { font-size: 8px; }
+  .map-caption strong { font-size: 11px; }
+  .map-caption p { font-size: 10px; }
+  .map-footnote { font-size: 9px; }
   .affiliations { padding-block: 22px; gap: 20px 16px; }
   .affiliations > p { margin-bottom: 0; }
   .affiliation { width: calc(50% - 10px); font-size: 17px; }
@@ -395,7 +395,7 @@ img { max-width: 100%; display: block; }
   .pub-cover { grid-column: 1; grid-row: 2; width: 48px; height: 65px; }
   .pub-body { grid-column: 2; grid-row: 1 / 3; }
   .pub h3 { font-size: 18px; line-height: 1.4; }
-  .pub-authors, .pub-journal { font-size: 10px; }
+  .pub-authors, .pub-journal { font-size: 12px; }
   .pub-actions { gap: 16px; flex-wrap: wrap; }
   .research-note { padding: 23px; align-items: start; flex-direction: column; gap: 15px; }
   .publications-section { padding-block: 30px 42px; }

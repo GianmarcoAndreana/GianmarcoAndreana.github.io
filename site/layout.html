@@ -22,8 +22,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="/css/site.css" />
-    <script src="/js/site.js" defer></script>
+    <link rel="stylesheet" href="/css/site.css?v={{css_version}}" />
+    <script src="/js/site.js?v={{js_version}}" defer></script>
     {{extra_head}}
   </head>
   <body data-page="{{page}}">
@@ -32,7 +32,7 @@
       <div class="header-inner wrap">
         <a class="brand" href="/" aria-label="Gianmarco Andreana, home">
           <span class="monogram" aria-hidden="true">ga<span>.</span></span>
-          <span class="brand-name">Gianmarco Andreana<span>Researcher &amp; educator</span></span>
+          <span class="brand-name">Gianmarco Andreana<span>Assistant Professor · ESCP</span></span>
         </a>
         <button class="menu-toggle icon-button" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="main-nav"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg></button>
         <nav class="main-nav" id="main-nav" aria-label="Main navigation">
@@ -51,10 +51,10 @@
     <main id="main">{{body}}</main>
     <footer class="site-footer">
       <div class="wrap footer-inner">
-        <a class="footer-name" href="/">Gianmarco Andreana<span>Operations research. Real-world questions.</span></a>
+        <a class="footer-name" href="/">Gianmarco Andreana<span>Operations Research &amp; Transportation Economics</span></a>
         <div class="footer-links"><a href="https://scholar.google.it/citations?user=ABjAFMAAAAAJ">Google Scholar ↗</a><a href="https://www.linkedin.com/in/gianmarco-andreana-120b74252/">LinkedIn ↗</a><a href="mailto:gandreana@escp.eu">Email ↗</a></div>
       </div>
-      <div class="wrap footer-bottom"><span>© {{year}} Gianmarco Andreana</span><a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a><span>Based in Madrid, connected across borders.</span></div>
+      <div class="wrap footer-bottom"><span>© {{year}} Gianmarco Andreana</span><a href="https://creativecommons.org/licenses/by-nc-nd/4.0/">CC BY-NC-ND 4.0</a><span>ESCP Business School · Madrid, Spain</span></div>
     </footer>
   </body>
 </html>

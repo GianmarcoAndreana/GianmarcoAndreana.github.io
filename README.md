@@ -41,8 +41,10 @@ sequence. No frontend packages, API keys, or live map service are needed.
 
 The map uses [Natural Earth](https://www.naturalearthdata.com/) 1:110m country
 geometry, which is [in the public domain](https://www.naturalearthdata.com/about/terms-of-use/).
-Routes illustrate academic connections rather than scheduled flights. TLV is shown
-as the airport gateway for Jerusalem; the location marker represents the city.
+Routes illustrate academic connections rather than scheduled flights. City markers
+use geographic coordinates, with separate markers for Bergamo and Milan. Country
+labels use the same map projection as the outlines; generation checks that each
+label anchor lies inside its country polygon.
 
 To regenerate the SVG, download `ne_110m_admin_0_countries.geojson` from the
 [Natural Earth repository](https://github.com/nvkelso/natural-earth-vector/tree/master/geojson),

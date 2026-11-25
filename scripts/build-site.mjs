@@ -1,19 +1,23 @@
 import { cp, mkdir, readFile, readdir, writeFile } from "node:fs/promises";
 import path from "node:path";
+import { createHash } from "node:crypto";
 import { fileURLToPath } from "node:url";
 
 export const root = fileURLToPath(new URL("../", import.meta.url));
 const pages = [
-  { name: "home", url: "/", title: "Gianmarco Andreana · Operations Research & Transportation Economics", description: "Assistant Professor at ESCP Business School, Madrid. Exploring aviation, competition and electricity markets through operations research and game theory." },
+  { name: "home", url: "/", title: "Gianmarco Andreana · Operations Research & Transportation Economics", description: "Assistant Professor at ESCP Business School, Madrid. Research in aviation, competition and electricity markets using operations research and game theory." },
   { name: "career", url: "/career/", title: "Career · Gianmarco Andreana", description: "Academic appointments, teaching and education at ESCP Business School, Bocconi, the University of Bergamo and the Hebrew University of Jerusalem." },
   { name: "research", url: "/research/", title: "Research · Gianmarco Andreana", description: "Publications on aviation, airline competition, airport capacity and environmental externalities, alongside research interests in electricity markets." },
-  { name: "accomplishments", url: "/accomplishments/", title: "Accomplishments · Gianmarco Andreana", description: "Research awards, grants and academic milestones in transportation economics and operations research." },
-  { name: "contacts", url: "/contacts/", title: "Contacts · Gianmarco Andreana", description: "Get in touch with Gianmarco Andreana at ESCP Business School in Madrid for research, academic collaboration and teaching inquiries." },
+  { name: "accomplishments", url: "/accomplishments/", title: "Accomplishments · Gianmarco Andreana", description: "Research awards, grants and advanced training in transportation economics and operations research." },
+  { name: "contacts", url: "/contacts/", title: "Contacts · Gianmarco Andreana", description: "Contact Gianmarco Andreana at ESCP Business School in Madrid for research, academic collaboration and teaching inquiries." },
 ];
 const escape = (value) => String(value).replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" })[c]);
 
 export async function buildSite(output = path.join(root, "public")) {
   const layout = await readFile(path.join(root, "site/layout.html"), "utf8");
+  const assetVersions = Object.fromEntries(await Promise.all([
+    ["css_version", "css/site.css"], ["js_version", "js/site.js"], ["map_version", "js/flight-map.js"],
+  ].map(async ([key, file]) => [key, createHash("sha256").update(await readFile(path.join(root, "static", file))).digest("hex").slice(0, 10)])));
   await mkdir(output, { recursive: true });
   await cp(path.join(root, "static"), output, { recursive: true });
   // Keep every citation available in standalone previews as well as Hugo builds.
@@ -29,8 +33,8 @@ export async function buildSite(output = path.join(root, "public")) {
       body = body.replace("{{flight_map}}", await readFile(path.join(root, "site/partials/flight-map.svg"), "utf8"));
     }
     const fields = {
-      ...page, page: page.name, body, year: new Date().getUTCFullYear(),
-      extra_head: page.name === "home" ? '<script src="/js/flight-map.js" defer></script>' : "",
+      ...page, ...assetVersions, page: page.name, body, year: new Date().getUTCFullYear(),
+      extra_head: page.name === "home" ? `<script src="/js/flight-map.js?v=${assetVersions.map_version}" defer></script>` : "",
       ...Object.fromEntries(pages.map((item) => [`active_${item.name}`, item === page ? 'aria-current="page"' : ""])),
     };
     const html = layout.replace(/\{\{([a-z_]+)\}\}/g, (_, key) => {

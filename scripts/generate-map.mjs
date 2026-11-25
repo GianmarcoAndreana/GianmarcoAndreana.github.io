@@ -24,10 +24,38 @@ const grid = [];
 for (let longitude = -20; longitude <= 50; longitude += 10) grid.push(`M${point([longitude, 60])}L${point([longitude, 20])}`);
 for (let latitude = 25; latitude <= 60; latitude += 5) grid.push(`M${point([-20, latitude])}L${point([50, latitude])}`);
 const cities = [
-  { id: "madrid", name: "Madrid", code: "MAD", coordinate: [-3.7038, 40.4168], dx: -25, dy: 30 },
-  { id: "bergamo", name: "Bergamo / Milan", code: "BGY / LIN", coordinate: [9.67, 45.695], dx: -38, dy: -27 },
-  { id: "jerusalem", name: "Jerusalem", code: "TLV · gateway", coordinate: [35.2137, 31.7683], dx: -12, dy: 30 },
+  { id: "madrid", group: "madrid", name: "Madrid", coordinate: [-3.7038, 40.4168], dx: -12, dy: -22, anchor: "end" },
+  { id: "bergamo", group: "bergamo", name: "Bergamo", coordinate: [9.67, 45.695], dx: 22, dy: -29, anchor: "start" },
+  { id: "milan", group: "bergamo", name: "Milan", coordinate: [9.19, 45.4642], dx: -26, dy: 28, anchor: "end" },
+  { id: "jerusalem", group: "jerusalem", name: "Jerusalem", coordinate: [35.2137, 31.7683], dx: 12, dy: -20, anchor: "start" },
 ];
+// Geographic anchors are projected with the same function as the country outlines.
+// Labels are centred on these points rather than offset from arbitrary SVG pixels.
+const countryLabels = [
+  { name: "SPAIN", country: "Spain", coordinate: [-3.6, 38.7] },
+  { name: "FRANCE", country: "France", coordinate: [2.55, 46.7] },
+  { name: "ITALY", country: "Italy", coordinate: [13.1, 42.6], angle: 43 },
+  { name: "GREECE", country: "Greece", coordinate: [22.1, 39.5] },
+  { name: "TÜRKIYE", country: "Turkey", coordinate: [34.5, 39.35] },
+  { name: "ALGERIA", country: "Algeria", coordinate: [3, 32.5] },
+];
+function insideRing([x, y], ring) {
+  let inside = false;
+  for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
+    const [xi, yi] = ring[i], [xj, yj] = ring[j];
+    if ((yi > y) !== (yj > y) && x < (xj - xi) * (y - yi) / (yj - yi) + xi) inside = !inside;
+  }
+  return inside;
+}
+const labels = countryLabels.map((label) => {
+  const feature = data.features.find((feature) => feature.properties.ADMIN === label.country);
+  if (!feature) throw new Error(`Country missing from map data: ${label.country}`);
+  const areas = feature.geometry.type === "Polygon" ? [feature.geometry.coordinates] : feature.geometry.coordinates;
+  if (!areas.some(([outer, ...holes]) => insideRing(label.coordinate, outer) && !holes.some((hole) => insideRing(label.coordinate, hole)))) {
+    throw new Error(`Label anchor is outside ${label.country}`);
+  }
+  return `<text class="map-label" text-anchor="middle" dominant-baseline="middle" data-country="${label.country}" data-longitude="${label.coordinate[0]}" data-latitude="${label.coordinate[1]}" transform="translate(${point(label.coordinate)}) rotate(${label.angle || 0})">${label.name}</text>`;
+}).join("\n");
 const locations = Object.fromEntries(cities.map((city) => [city.id, project(city.coordinate)]));
 function route(id, from, to, bend, secondary = false) {
   const a = Array.isArray(from) ? project(from) : locations[from];
@@ -39,30 +67,26 @@ const routes = [
   route("madrid-bergamo", "madrid", "bergamo", 80),
   route("bergamo-jerusalem", "bergamo", "jerusalem", 110),
   route("jerusalem-madrid", "jerusalem", "madrid", 25),
-  route("london", [-.12, 51.5], "madrid", 30, true),
-  route("paris", [2.35, 48.86], "bergamo", 24, true),
-  route("vienna", [16.37, 48.2], "jerusalem", 42, true),
-  route("athens", [23.73, 37.98], "bergamo", 50, true),
 ];
 const shape = '<path d="M12 0 2-2-4-10-7-10-4-2-10-1-13-5-15-5-13 0-15 5-13 5-10 1-4 2-7 10-4 10 2 2Z"/>';
 const planes = [
   { route: "madrid-bergamo", transform: "translate(228 204) rotate(-30)", duration: 22, offset: .4 },
   { route: "bergamo-jerusalem", transform: "translate(485 261) rotate(40)", duration: 29, offset: .55 },
   { route: "jerusalem-madrid", transform: "translate(385 322) rotate(-164)", duration: 35, offset: .5 },
-  { route: "london", transform: "translate(189 160) rotate(110) scale(.65)", duration: 27, offset: .3, secondary: true },
 ];
 const nodes = cities.map((city) => {
   const [x, y] = locations[city.id];
-  return `<g data-map-node="${city.id}" transform="translate(${number(x)} ${number(y)})"><circle class="city-ring" r="14"/><circle class="city-dot" r="5"/><text class="city-label" x="${city.dx}" y="${city.dy}">${city.name}</text><text class="city-code" x="${city.dx}" y="${city.dy + 13}">${city.code}</text></g>`;
+  const labelEnd = city.dx + (city.anchor === "end" ? -4 : 4);
+  return `<g data-map-node="${city.group}" data-city-marker="${city.id}" data-longitude="${city.coordinate[0]}" data-latitude="${city.coordinate[1]}" transform="translate(${number(x)} ${number(y)})"><circle class="city-ring" r="${city.id === "madrid" ? 16 : 9}"/><path class="city-leader" d="M0 0L${city.dx} ${city.dy + 6}H${labelEnd}"/><circle class="city-dot" r="${city.group === "bergamo" ? 3 : 4.5}"/><text class="city-label" text-anchor="${city.anchor}" x="${labelEnd}" y="${city.dy}">${city.name}</text></g>`;
 }).join("\n");
 const svg = `<svg class="flight-map" id="flight-map" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 455" role="img" aria-labelledby="flight-map-title flight-map-description">
-<title id="flight-map-title">An academic journey across Europe and the Mediterranean</title>
-<desc id="flight-map-description">Aircraft follow illustrative routes between Madrid, Bergamo and Milan, and Jerusalem. Madrid is the current base at ESCP Business School. Bergamo and Milan represent the University of Bergamo and Bocconi; Jerusalem represents the Hebrew University. TLV is the airport gateway to Jerusalem. Select a location using the buttons below. Geography: Natural Earth, public domain.</desc>
+<title id="flight-map-title">Locations of current and previous academic appointments</title>
+<desc id="flight-map-description">City markers show Madrid (ESCP Business School), Bergamo (University of Bergamo), Milan (Bocconi University), and Jerusalem (Hebrew University). Lines and aircraft illustrate connections between academic locations, not scheduled flights. Select a location using the buttons below. Geography: Natural Earth, public domain.</desc>
 <defs><clipPath id="map-clip"><rect width="720" height="455"/></clipPath></defs>
 <g clip-path="url(#map-clip)">
 <path class="graticule" d="${grid.join("")}"/>
 ${land}
-<g aria-hidden="true"><text class="map-label" x="235" y="177">FRANCE</text><text class="map-label" x="348" y="259" transform="rotate(42 348 259)">ITALY</text><text class="map-label" x="451" y="289">GREECE</text><text class="map-label" x="574" y="257">TÜRKIYE</text><text class="map-label" x="187" y="431">NORTH AFRICA</text><text class="sea-label" x="320" y="366" transform="rotate(7 320 366)">Mediterranean Sea</text></g>
+<g aria-hidden="true">${labels}<text class="sea-label" text-anchor="middle" transform="translate(${point([17, 34.5])})">Mediterranean Sea</text></g>
 ${routes.join("\n")}
 ${planes.map((plane) => `<g class="plane${plane.secondary ? " secondary" : ""}" data-flight="${plane.route}" data-duration="${plane.duration}" data-offset="${plane.offset}" transform="${plane.transform}">${shape}</g>`).join("\n")}
 ${nodes}
